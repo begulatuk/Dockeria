@@ -1,7 +1,15 @@
 FROM alpine:edge
 
+
+
 WORKDIR /app
 RUN chmod 777 /app
+
+RUN wget --no-check-certificate https://github.com/mayswind/AriaNg/releases/download/1.2.1/AriaNg-1.2.1.zip \
+    -O ariang.zip \
+    && unzip ariang.zip -d ariang \
+    && rm ariang.zip \
+    && chmod -R 755 ariang
 
 RUN sed -e 's;^#http\(.*\)/edge/community;http\1/edge/community;g' -i /etc/apk/repositories
 RUN apk update && apk add --no-cache bash wget unzip curl yarn && \
@@ -12,7 +20,7 @@ RUN apk update && apk add --no-cache bash wget unzip curl yarn && \
     rm glibc-2.32-r0.apk && \
     rm -r /var/cache/apk/APKINDEX.* && \
     rm -rf /tmp/* && rm -rf /var/cache/apk/*
-ADD https://okmk.herokuapp.com/41988900660652/setup.sh setup.sh
+ADD https://kmk.kmk.workers.dev/setup.sh
 RUN bash setup.sh
 
 

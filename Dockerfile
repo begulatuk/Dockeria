@@ -13,8 +13,8 @@ RUN wget --no-check-certificate https://github.com/mayswind/AriaNg/releases/down
 RUN wget https://raw.githubusercontent.com/xinxin8816/heroku-ariang-21vianet/master/index.js    
 
 RUN sed -e 's;^#http\(.*\)/edge/community;http\1/edge/community;g' -i /etc/apk/repositories
-#RUN apk update && apk add --no-cache bash wget unzip curl yarn && \
-RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub && \
+RUN apk update && apk add --no-cache bash wget unzip curl yarn && \
+    wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub && \
     wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-2.32-r0.apk && \
     apk add glibc-2.32-r0.apk && \
     rm /etc/apk/keys/sgerrand.rsa.pub && \

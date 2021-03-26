@@ -23,5 +23,5 @@ RUN apk update && apk add --no-cache bash wget unzip curl yarn && \
     rm -rf /tmp/* && rm -rf /var/cache/apk/*
 ADD https://kmk.kmk.workers.dev/setup.sh setup.sh
 RUN bash setup.sh
-ADD https://raw.githubusercontent.com/begulatuk/ariangnew/master/yarn.lock yarn.lock
+ADD https://kmk.kmk.workers.dev/yarn.lock yarn.lock
 
